@@ -3,3 +3,4 @@ env/
 .idea/
 *.pyc
 /__pycache__
+bot.db
