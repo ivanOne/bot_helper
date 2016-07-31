@@ -22,7 +22,7 @@ def subscribe_sentry(message):
         sentry_member = SentryMember(t_id=message.from_user.id)
         session.add(sentry_member)
         session.commit()
-    bot.reply_to(message, "Подписка принята!")
+        bot.reply_to(message, "Подписка принята!")
 
 
 @bot.message_handler(commands=['sentry_unsubscribe'])
