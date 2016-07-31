@@ -15,9 +15,13 @@ def send_welcome(message):
 @bot.message_handler(commands=['sentry_subscribe'])
 def subscribe_sentry(message):
     session = get_connection()
-    sentry_member = SentryMember(t_id=message.from_user.id)
-    session.add(sentry_member)
-    session.commit()
+    result = session.query(SentryMember).filter(SentryMember.t_id == message.from_user.id).first()
+    if result:
+        bot.reply_to(message, "Вы уже подписаны!")
+    else:
+        sentry_member = SentryMember(t_id=message.from_user.id)
+        session.add(sentry_member)
+        session.commit()
     bot.reply_to(message, "Подписка принята!")
 
 
