@@ -19,9 +19,8 @@ def pre_request_logging():
         kw = {'dt': dt, 'addr': addr, 'method': method, 'url': url, 'data': data, 'headers': headers}
         str_log = "{dt} \n {addr} \n {method} \n {url} \n {data} \n headers: \n {headers}\n -------------------\n"\
             .format(**kw)
-        f = open('log.txt', 'w')
-        f.write(str_log)
-        f.close()
+        with open("test.txt", "a") as myfile:
+            myfile.write(str_log)
 
 
 @app.route("/")
