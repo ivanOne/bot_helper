@@ -12,9 +12,10 @@ def alert():
     data = json.loads(data)
     url = data.get('url')
     message = data.get('message')
+    detail = data.get('culprit')
     level = data.get('level')
-    data = {'level': level, 'url': url, 'message': message}
-    message = u"Уровень - {level} \n {message} \n {url}".format(**data)
+    data = {'level': level, 'url': url, 'message': message, 'detail': detail}
+    message = u"Ошибка! Уровень - {level} \n {message} \n {detail} \n {url}".format(**data)
     send_alert_message(message)
     return Response()
 
