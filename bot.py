@@ -34,10 +34,10 @@ def subscribe_sentry(message):
     bot.reply_to(message, u"Подписка отменена!")
 
 
-def send_alert_message():
+def send_alert_message(message):
     session = get_connection()
     result = session.query(SentryMember).all()
     for user in result:
         if user.t_id:
-            bot.send_message(user.t_id, u"Тревога!")
+            bot.send_message(user.t_id, message)
     return 
