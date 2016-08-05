@@ -11,7 +11,7 @@ def alert():
     data = request.data
     data = json.loads(data)
     url = data.get('url')
-    message = data.get('')
+    message = data.get('message')
     level = data.get('level')
     data = {'level': level, 'url': url, 'message': message}
     message = u"Уровень - {level} \n {message} \n {url}".format(**data)
