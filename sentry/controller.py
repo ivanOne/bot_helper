@@ -4,7 +4,7 @@ from bot import send_alert_message
 sentry = Blueprint('sentry', __name__)
 
 
-@sentry.route('/alert', methods=['GET', 'POST'])
+@sentry.route('/alert', methods=['POST'])
 def alert():
     send_alert_message()
     return Response()
