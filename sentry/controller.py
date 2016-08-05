@@ -15,7 +15,7 @@ def alert():
     detail = data.get('culprit')
     level = data.get('level')
     data = {'level': level, 'url': url, 'message': message, 'detail': detail}
-    message = u"Ошибка! Уровень - {level} \n {message} \n {detail} \n {url}".format(**data)
+    message = u"Ошибка! \n Уровень - {level} \n {message} \n {detail} \n {url}".format(**data)
     send_alert_message(message)
     return Response()
 
